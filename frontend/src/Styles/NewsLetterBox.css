@@ -1,0 +1,61 @@
+/* Glowing text */
+.text-glow {
+  color: #fff;
+  text-shadow: 0 0 6px #ffffffaa, 0 0 12px #fff;
+}
+
+.animate-glow {
+  animation: glowFadeIn 1.2s ease-in-out both;
+}
+
+@keyframes glowFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: none;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 6px #ffffffaa, 0 0 12px #fff;
+  }
+}
+
+/* Glowing button */
+.glow-button {
+  position: relative;
+  color: inherit;
+  background: transparent;
+  transition: color 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, black, white);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.glow-button:hover::before {
+  transform: scaleX(1);
+}
+
+.glow-button:hover {
+  color: white;
+}
+
+.glow-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Input glow focus */
+.newsletter-input:focus {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 255, 255, 0.3);
+  border-color: black;
+}

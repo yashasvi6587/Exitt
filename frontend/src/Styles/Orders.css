@@ -1,0 +1,92 @@
+.orders-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #222;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  transition: 0.3s ease;
+  background-color: #fff;
+}
+
+.order-card:hover {
+  box-shadow: 0 0 12px #111;
+  transform: translateY(-2px);
+}
+
+.order-left {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.order-left img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.order-info p {
+  margin: 0;
+  color: #222;
+}
+
+.order-info span {
+  font-weight: 500;
+  color: #000;
+}
+
+.order-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: green;
+}
+
+.order-status-dot {
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.track-btn {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.track-btn:hover {
+  box-shadow: 0 0 10px #000;
+  transform: scale(1.03);
+}

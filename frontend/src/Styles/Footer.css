@@ -1,0 +1,41 @@
+.footer-heading {
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+.dark .footer-heading::after {
+  background-color: white;
+}
+
+.footer-link-item {
+  cursor: pointer;
+  color: inherit;
+  position: relative;
+  transition: all 0.3s ease;
+  padding-left: 2px;
+}
+
+.footer-link-item:hover {
+  color: #000;
+  transform: translateX(5px);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.dark .footer-link-item:hover {
+  color: white;
+}

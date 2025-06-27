@@ -1,0 +1,112 @@
+/* Orders.css */
+
+.orders-container {
+  padding: 2rem;
+  background: #fff;
+  color: #111;
+}
+
+.orders-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #111;
+  display: inline-block;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 1fr;
+  align-items: start;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #f8f8f8, #fff);
+}
+
+.order-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.parcel-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: grayscale(100%);
+}
+
+.order-details {
+  padding-left: 1rem;
+  color: #333;
+}
+
+.order-items p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.size {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.customer-name {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.address-block p, .phone {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.payment-info {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding-left: 1rem;
+}
+
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: crimson;
+  font-weight: bold;
+}
+
+.amount-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.status-select {
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #111;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #fff;
+}
+
+.status-select:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,45 @@
+/* Sidebar.css */
+.admin-sidebar {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 0 12px rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.sidebar-link img {
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #ffffff10;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-link:hover img {
+  transform: scale(1.1);
+}
+
+.sidebar-link.active {
+  background: linear-gradient(to right, #fff, #ccc);
+  color: #111 !important;
+  box-shadow: 0 0 10px #ffffffc4;
+}

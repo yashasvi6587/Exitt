@@ -1,0 +1,18 @@
+.collection-wrapper select:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.collection-wrapper .filter-box {
+  background: linear-gradient(145deg, rgba(0,0,0,0.05), rgba(255,255,255,0.02));
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.collection-wrapper input[type="checkbox"]:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease;
+}
+
+.collection-wrapper label:hover {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}

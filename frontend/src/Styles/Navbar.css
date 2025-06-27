@@ -1,0 +1,63 @@
+/* Navbar glow text when active */
+.text-glow {
+  color: black;
+  text-shadow: 0 0 5px white, 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Underline animation */
+.nav-underline {
+  content: '';
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background: black;
+  transition: width 0.3s ease;
+}
+
+.dark .nav-underline {
+  background: white;
+}
+
+.icon-hover {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+}
+
+.group:hover .nav-underline {
+  width: 100%;
+}
+
+/* Icon hover glow */
+.icon-hover {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+}
+
+/* Dropdown styles */
+.dropdown-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dark .dropdown-item:hover {
+  background-color: #1a1a1a;
+}
+
+

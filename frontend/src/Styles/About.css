@@ -1,0 +1,28 @@
+.about-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.shadow-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+}
+
+.mission-box {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+.why-box {
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+}
+
+.why-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}

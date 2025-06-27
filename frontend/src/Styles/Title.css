@@ -1,0 +1,44 @@
+.title-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.title-container p:first-child {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
+}
+
+.title-container p:first-child:hover {
+  color: #111;
+  text-shadow: 0 0 5px #aaa, 0 0 10px #000;
+}
+
+.title-container span {
+  color: transparent;
+  background: linear-gradient(90deg, #101010, #666);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: 0.4s ease;
+}
+
+
+.title-container p:last-child {
+  width: 80px;
+  height: 3px;
+  background: #000;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0% { width: 60px; background: #000; }
+  50% { width: 100px; background: #444; }
+  100% { width: 60px; background: #000; }
+}

@@ -1,0 +1,53 @@
+/* Navbar.css */
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-logo {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px white);
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  color: #000000;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 2px solid #000000;
+  padding: 0.4rem 1.2rem;
+  color: #000000;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 8px #ffffffc2;
+  transform: translateY(-2px);
+}
