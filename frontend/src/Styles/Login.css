@@ -92,6 +92,28 @@
   transform: scale(1.03);
   color: black;
 }
+.login-form select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background: white;
+  color: black;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+.login-form select:focus {
+  border-color: black;
+  box-shadow: 0 0 10px black;
+}
+
+.login-form input[type="date"] {
+  color-scheme: light;
+}
+
 
 @keyframes fadeIn {
   from {

@@ -4,6 +4,10 @@ const userSchema=new mongoose.Schema({
     email:{type:String,required:true,unique:true},
     password:{type:String,required:true},
     cartData:{type:Object,default:{}},
+    phone:{type:String,required:true},
+    gender:{type:String,required:true},
+    dob:{type:String,required:true},
+    bikeType:{type:String,required:true}
 },{minimize:false} )
 
 const userModel=mongoose.models.user || mongoose.model("user",userSchema)

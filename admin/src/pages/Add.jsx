@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
 import { toast } from 'react-toastify'
-import '../styles/Add.css'
+import '../Styles/Add.css'
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false)
@@ -12,8 +12,9 @@ const Add = ({ token }) => {
   const [image4, setImage4] = useState(false)
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
+  const [content, setContent] = useState("")
   const [price, setPrice] = useState("")
-  const [category, setCatgeory] = useState("Men")
+  const [category, setCatgeory] = useState("DUST & FREEDOM")
   const [subCategory, setSubCategory] = useState("TopWear")
   const [bestseller, setBestseller] = useState(false)
   const [sizes, setSizes] = useState([])
@@ -24,6 +25,7 @@ const Add = ({ token }) => {
       const formData = new FormData()
       formData.append("name", name)
       formData.append("description", description)
+      formData.append("content", content)
       formData.append("price", price)
       formData.append("category", category)
       formData.append("subCategory", subCategory)
@@ -39,6 +41,7 @@ const Add = ({ token }) => {
       if (response.data.success) {
         toast.success(response.data.message)
         setDescription('')
+        setContent('')
         setImage1(false)
         setImage2(false)
         setImage3(false)
@@ -87,13 +90,18 @@ const Add = ({ token }) => {
         <p>Product Description</p>
         <textarea value={description} onChange={(e) => setDescription(e.target.value)} required placeholder='Type Here' />
       </div>
+      <div className="text-input">
+        <p>Content</p>
+        <input value={content} onChange={(e) => setContent(e.target.value)} type="text" required placeholder='Type Here' />
+      </div>
       <div className="selectors">
         <div>
           <p>Category</p>
           <select onChange={(e) => setCatgeory(e.target.value)} value={category}>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
+            <option value="DUST & FREEDOM">DUST & FREEDOM</option>
+            <option value="MIDNIGHT RUN">MIDNIGHT RUN</option>
+            <option value="BROTHERHOOD / SISTERHOOD">BROTHERHOOD / SISTERHOOD</option>
+            <option value="LAP RAGE">LAP RAGE</option>
           </select>
         </div>
         <div>

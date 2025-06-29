@@ -1,11 +1,13 @@
 import React from 'react'
 import '../Styles/NewsLetterBox.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const NewsLetterBox = () => {
-  const onSubmit = (event) => {
-    event.preventDefault()
-    // Handle form submission here
+  const navigate = useNavigate()
+
+  const handleJoinClick = () => {
+    window.scrollTo(0, 0)
+    navigate('/contact')
   }
 
   return (
@@ -17,17 +19,15 @@ const NewsLetterBox = () => {
         Join our newsletter to receive updates, exclusive deals, and more.
       </p>
 
-      <form onSubmit={onSubmit} className="newsletter-form max-w-xl mx-auto flex flex-col sm:flex-row items-center gap-4">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          required
-          className="newsletter-input flex-1 px-4 py-2 rounded-full border border-gray-300 dark:border-zinc-700 focus:outline-none"
-        />
-        <Link to="/login"><button type="submit" className="glow-button px-6 py-2 rounded-full border border-black dark:border-white font-semibold tracking-wide">
+      {/* Centered JOIN NOW Button */}
+      <div className="flex justify-center">
+        <button
+          className="glow-button px-8 py-3 rounded-full border border-black dark:border-white font-semibold tracking-wide"
+          onClick={handleJoinClick}
+        >
           JOIN NOW
-        </button></Link>
-      </form>
+        </button>
+      </div>
     </div>
   )
 }

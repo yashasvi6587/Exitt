@@ -1,48 +1,51 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import "../Styles/Hero.css"
+// import "../Styles/Hero.css"
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <div className="relative bg-white dark:bg-black text-white dark:text-white overflow-hidden">
-      {/* Content Container */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-start px-6 md:px-20 gap-6 animate-fade-in">
+    <div className="bg-white text-black w-full overflow-hidden py-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-4 md:px-10">
+        
+        {/* Text Section */}
+        <div className="text-center md:text-left space-y-6 animate-fade-in">
+          <div className="flex items-center justify-center md:justify-start gap-3">
+            <div className="w-8 md:w-10 h-[2px] bg-black rounded-full" />
+            <p className="text-lg tracking-widest font-semibold">
+              OUR BESTSELLERS
+            </p>
+          </div>
 
-        {/* Top Tag Line */}
-        <div className="flex items-center gap-3 group">
-          <div className="w-8 md:w-11 h-[2px] bg-white dark:bg-white transition-all duration-300 group-hover:w-16"></div>
-          <p className="text-sm font-medium tracking-widest group-hover:tracking-[0.25em] transition-all duration-300">
-            OUR BESTSELLERS
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight uppercase hover:tracking-wider transition duration-500">
+            Latest Arrivals
+          </h1>
+
+          <p className="text-md text-gray-600 max-w-md mx-auto md:mx-0">
+            Discover our new limited-edition arrivals with sleek designs and monochrome aesthetics. Designed for modern minimalists.
           </p>
+
+          {/* CTA Button */}
+          <Link to="/collection"><div className="group inline-block relative mt-4 cursor-pointer">
+            <p className="text-md font-medium px-6 py-3 bg-black text-white rounded-full shadow-md group-hover:shadow-xl transition-all duration-300">
+              SHOP NOW
+            </p>
+            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-40 bg-black blur-xl transition duration-700" />
+          </div></Link>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight transition-all duration-500 bg-clip-text text-transparent bg-white dark:from-white dark:via-gray-400 dark:to-white">
-          Latest Arrivals
-        </h1>
-
-        {/* Call to Action */}
-        <div className="flex items-center gap-4 group cursor-pointer transition-transform hover:scale-105">
-          <button className="glow-button px-6 py-2 rounded-full font-medium relative z-10 overflow-hidden border border-white dark:border-white">
-           <Link to="/collection"> <span className="relative z-20">SHOP NOW</span></Link>
-            <div className="glow-bg"></div>
-          </button>
-          <div className="w-8 md:w-11 h-[2px] bg-white dark:bg-white transition-all group-hover:w-16"></div>
+        {/* Video Section */}
+        <div className="rounded-xl overflow-hidden shadow-xl border border-gray-200 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+          <video
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+            autoPlay
+            muted
+            loop
+            playsInline
+            src={assets.hero_video} // Add video to your assets folder
+          />
         </div>
       </div>
-
-      {/* Hero Video */}
-      <video
-        src={assets.hero_video}
-        autoPlay
-        loop
-        muted
-        className="w-full h-screen object-cover"
-      />
-
-      {/* Optional Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-black/60 dark:from-black/80 dark:via-transparent dark:to-white/10 z-0"></div>
     </div>
   )
 }

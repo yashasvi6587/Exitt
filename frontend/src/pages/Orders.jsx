@@ -10,7 +10,7 @@ const Orders = () => {
 
   const loadOrderData = async () => {
     try {
-      if (!token) return
+      if (!token) return null
 
       const response = await axios.post(backendUrl + '/api/order/userorders', {}, {
         headers: { token }

@@ -75,6 +75,7 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import hero_video from "./hero_video.mp4"
 import cod_logo from "./cod.png"
+import user_logo from "./user_logo.jpg"
 
 export const assets = {
     logo,
@@ -96,8 +97,11 @@ export const assets = {
     stripe_logo,
     cross_icon,
     hero_video,
-    cod_logo
+    cod_logo,
+    user_logo
 }
+
+
 
 export const products = [
     {

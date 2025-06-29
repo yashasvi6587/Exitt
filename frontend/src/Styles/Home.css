@@ -1,0 +1,17 @@
+.homepage {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.home-section {
+  padding: 4rem 2rem;
+}
+
+.latest {
+  background-color: #111;
+}
+
+.themes {
+  background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+}

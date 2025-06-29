@@ -76,16 +76,19 @@ const Navbar = () => {
           />
 
           <div className="relative" ref={dropdownRef}>
-            <img
+            {
+              <img
               onClick={handleProfileClick}
               src={assets.profile_icon}
               alt="Profile"
               className="cursor-pointer w-10 h-10"
             />
+            }
+            
 
             {token && showDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-zinc-900 shadow-md rounded-md border z-20 transition-all duration-200">
-                <p onClick={() => { navigate('/my-profile'); setShowDropdown(false); }} className="dropdown-item">
+                <p onClick={() => { navigate('/profile'); setShowDropdown(false); }} className="dropdown-item">
                   My Profile
                 </p>
                 <p onClick={() => { navigate('/orders'); setShowDropdown(false); }} className="dropdown-item">

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
-import { assets } from '../assets/assets';
 import Title from '../components/Title';
 import ProductItem from '../components/ProductItem';
 import '../Styles/Collection.css';
@@ -68,7 +67,7 @@ const Collection = () => {
         <div className="lg:w-1/4 border border-gray-300 dark:border-gray-700 rounded-lg p-5 filter-box">
           <div className="mb-6">
             <p className="text-lg font-semibold mb-3">CATEGORIES</p>
-            {['Men', 'Women', 'Kids'].map((cat, index) => (
+            {['DUST & FREEDOM', 'MIDNIGHT RUN', 'BROTHERHOOD / SISTERHOOD','LAP RAGE'].map((cat, index) => (
               <label key={index} className="block mb-2 cursor-pointer hover:text-gray-700 dark:hover:text-gray-300">
                 <input type="checkbox" value={cat} onChange={togglecategory} className="mr-2" />
                 {cat}

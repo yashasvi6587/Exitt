@@ -1,42 +1,60 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title'
-import ProductItem from './ProductItem'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import '../Styles/LatestCollection.css'
+import { Link } from 'react-router-dom'
 
 const LatestCollection = () => {
-  const { products } = useContext(ShopContext)
-  const [latestProduct, setLatestProduct] = useState([])
+  const { products, currency, addToCart } = useContext(ShopContext)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const latestProduct = products.slice(0, 5)
 
-  useEffect(() => {
-    setLatestProduct(products.slice(0, 10))
-  }, [products])
+  const handlePrev = () => {
+    setCurrentIndex(prev => (prev - 1 + latestProduct.length) % latestProduct.length)
+  }
+
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev + 1) % latestProduct.length)
+  }
 
   return (
-    <div className="bg-white dark:bg-black text-white dark:text-white py-16 px-4 md:px-20 transition-colors duration-300">
-      {/* Title Section */}
-      <div className="text-center mb-12 space-y-4">
-        <Title text1={'LATEST'} text2={'COLLECTIONS'} />
-        <p className="max-w-xl mx-auto text-gray-600 dark:text-gray-300 text-sm md:text-base">
-          Discover the freshest drops in our lineup. Elegance meets style with modern transitions and glowing charm.
-        </p>
-      </div>
+    <div className="hero-section">
+      <Title text1="EXPLORE" text2="COLLECTION" />
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {latestProduct.map((item, index) => (
-          <div
-            key={index}
-            className="group rounded-xl p-2 text-white md:p-3 border border-gray-200 dark:border-zinc-800 bg-black dark:bg-white shadow-md hover:shadow-glow transform transition-all duration-300 hover:-translate-y-2"
-          >
-            <ProductItem className="text-white"
-              id={item._id}
-              name={item.name}
-              image={item.image}
-              price={item.price}
-            />
-          </div>
-        ))}
+      <div className="hero-content">
+        {/* Left Text */}
+        <div className="hero-text">
+          <p className="tagline">SELL ANYTHING</p>
+          <h1 className="hero-heading">All you need to power your online store.</h1>
+          <p className="hero-subtext">
+            Whether you’re just getting started or are an established brand, our powerful platform helps your business grow.
+          </p>
+          <Link to='/collection'><button className="hero-cta">GET STARTED</button></Link>
+        </div>
+
+        {/* Right Carousel */}
+        <div className="hero-carousel">
+          {latestProduct.length > 0 && (
+            <div className="carousel-box">
+              <button className="carousel-nav left" onClick={handlePrev}><FaArrowLeft /></button>
+
+              <div className="carousel-card">
+                <img src={latestProduct[currentIndex].image} alt={latestProduct[currentIndex].name} className="carousel-img" />
+                <h3 className="carousel-name">{latestProduct[currentIndex].name}</h3>
+                <p className="carousel-desc">{latestProduct[currentIndex].content}</p>
+                <p className="carousel-price">{currency} {latestProduct[currentIndex].price}/-</p>
+                <Link to='/collection'><button
+                  className="add-to-cart-btn"
+                >
+                  EXPLORE
+                </button></Link>
+              </div>
+
+              <button className="carousel-nav right" onClick={handleNext}><FaArrowRight /></button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ const ProductItem = ({ id, image, name, price }) => {
         <img src={image[0]} alt={name} className="w-full h-auto object-cover" />
       </div>
       <p className="font-semibold">{name}</p>
-      <p className="text-sm text-white">{currency} {price}</p>
+      <p className="text-sm text-white">{currency} {price}/-</p>
     </Link>
 
   )

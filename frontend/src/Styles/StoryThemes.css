@@ -1,0 +1,90 @@
+.themes-wrapper {
+  width: 100%;
+  padding: 2rem 0;
+  background: white;
+}
+
+.theme-block {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
+
+.theme-block.left {
+  flex-direction: row;
+}
+
+.theme-block.right {
+  flex-direction: row-reverse;
+}
+
+.theme-bg {
+  width: 40%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+}
+
+.theme-box {
+  width: 60%;
+  padding: 2rem;
+  background: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 0 1rem;
+  border-radius: 12px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.theme-box:hover {
+  transform: rotateY(5deg);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+}
+
+.theme-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.theme-box ul {
+  padding-left: 1rem;
+  list-style: none;
+  font-size: 1.05rem;
+  color: #111;
+}
+
+.theme-box ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.theme-box ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: black;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .theme-block {
+    flex-direction: column !important;
+  }
+
+  .theme-bg, .theme-box {
+    width: 90%;
+  }
+
+  .theme-box {
+    margin-top: 1.5rem;
+  }
+}
