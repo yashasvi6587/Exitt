@@ -1,8 +1,10 @@
-/* App.css */
 body {
   background-color: #ffffff;
   color: #050404;
   font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .admin-app {
@@ -10,6 +12,7 @@ body {
   background: linear-gradient(145deg, #f9f4f4, #1a1a1a);
   transition: all 0.4s ease-in-out;
   padding: 1rem;
+  overflow-x: hidden;
 }
 
 .admin-layout {
@@ -31,4 +34,38 @@ body {
 .divider {
   border-color: rgba(255, 255, 255, 0.1);
   margin: 1rem 0;
+}
+
+/* ✅ Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .admin-content {
+    padding: 1rem;
+  }
+
+  .admin-app {
+    padding: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .admin-app {
+    padding: 0.5rem;
+  }
+
+  .admin-content {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .divider {
+    margin: 0.8rem 0;
+  }
 }

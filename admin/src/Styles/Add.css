@@ -1,4 +1,3 @@
-/* Add.css */
 .add-product-form {
   color: #fff;
   background: #111;
@@ -7,11 +6,14 @@
   font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 0 15px rgba(255,255,255,0.08);
   transition: all 0.3s ease-in-out;
+  max-width: 1000px;
+  margin: auto;
 }
 .add-product-form p {
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
+
 .upload-section img {
   width: 100px;
   height: 100px;
@@ -25,11 +27,14 @@
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
+
 .image-upload-grid {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
+
 .text-input input,
 .text-input textarea {
   width: 100%;
@@ -41,11 +46,14 @@
   outline: none;
   margin-bottom: 1.5rem;
 }
+
 .selectors {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
+
 .selectors select,
 .selectors input[type="number"] {
   padding: 0.5rem;
@@ -53,12 +61,17 @@
   border: 1px solid #444;
   color: #fff;
   border-radius: 6px;
+  width: 100%;
+  min-width: 150px;
 }
+
 .size-selection {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
+
 .size-selection div {
   background: #222;
   color: #fff;
@@ -68,18 +81,22 @@
   transition: 0.2s;
   border: 1px solid #444;
 }
+
 .size-selection div.selected {
   background: #fff;
   color: #000;
   font-weight: bold;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
+
 .checkbox-field {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
+
 .submit-button {
   padding: 0.8rem 2rem;
   background: linear-gradient(to right, #fff, #ccc);
@@ -90,7 +107,66 @@
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
+
 .submit-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* ✅ Responsive Styles */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .add-product-form {
+    padding: 1.5rem;
+  }
+
+  .upload-section img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .selectors {
+    flex-direction: column;
+  }
+
+  .selectors select,
+  .selectors input[type="number"] {
+    width: 100%;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 0.7rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .add-product-form {
+    padding: 1rem;
+  }
+
+  .image-upload-grid {
+    justify-content: center;
+  }
+
+  .upload-section img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .size-selection {
+    justify-content: center;
+  }
+
+  .text-input input,
+  .text-input textarea {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 }

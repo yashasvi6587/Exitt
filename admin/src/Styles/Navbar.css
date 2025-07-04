@@ -1,4 +1,3 @@
-/* Navbar.css */
 .admin-navbar {
   display: flex;
   justify-content: space-between;
@@ -8,25 +7,25 @@
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex: 1;
 }
 
 .navbar-logo {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   padding: 8px;
-  /* background-color: #000000; Make it feel like a logo badge */
-  border-radius: 50%; /* Circle */
+  border-radius: 50%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: contain;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-
 
 .navbar-logo:hover {
   transform: scale(1.05);
@@ -34,12 +33,12 @@
   background-color: #111;
 }
 
-
 .navbar-title {
   font-size: 1.25rem;
   color: #000000;
   font-weight: 500;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .logout-btn {
@@ -59,4 +58,51 @@
   color: #ffffff;
   box-shadow: 0 0 8px #ffffffc2;
   transform: translateY(-2px);
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  .admin-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .navbar-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .navbar-logo {
+    height: 60px;
+    width: 60px;
+  }
+
+  .navbar-title {
+    font-size: 1.1rem;
+  }
+
+  .logout-btn {
+    align-self: flex-end;
+    padding: 0.3rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 1rem;
+  }
+
+  .navbar-logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .logout-btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.8rem;
+  }
 }

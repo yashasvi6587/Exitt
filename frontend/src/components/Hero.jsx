@@ -2,7 +2,10 @@ import React from 'react'
 import { assets } from '../assets/assets'
 
 import "../Styles/Hero.css"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7341df9 (commit)
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
