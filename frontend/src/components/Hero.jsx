@@ -1,6 +1,9 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+<<<<<<< HEAD
 // import "../Styles/Hero.css"
+=======
+>>>>>>> 94b9cfb1f85892aacc5fcf97eff0868840c1f429
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
