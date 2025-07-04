@@ -63,8 +63,8 @@ const Orders = ({ token }) => {
               <div className="payment-info">
                 <p>Items: {order.items.length}</p>
                 <p>Method: {order.paymentMethod}</p>
-                <p>Payment: <span className={order.payment ? 'paid' : 'pending'}>
-                  {order.payment ? 'Done' : 'Pending'}
+                <p>Payment: <span className={order.payment ? 'paid' : 'paid'}>
+                  Done
                 </span></p>
                 <p>Date: {new Date(order.date).toLocaleDateString()}</p>
               </div>
