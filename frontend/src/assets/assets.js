@@ -76,6 +76,8 @@ import cross_icon from './cross_icon.png'
 import hero_video from "./hero_video.mp4"
 import cod_logo from "./cod.png"
 import user_logo from "./user_logo.jpg"
+import googlelogo from "./googlelogo.png"
+
 
 export const assets = {
     logo,
@@ -98,7 +100,8 @@ export const assets = {
     cross_icon,
     hero_video,
     cod_logo,
-    user_logo
+    user_logo,
+    googlelogo
 }
 
 

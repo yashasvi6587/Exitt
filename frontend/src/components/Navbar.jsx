@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
+
   const [showDropdown, setShowDropdown] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -38,6 +39,7 @@ const Navbar = () => {
     setCartItems({});
   };
 
+
   return (
     <div className="navbar-container bg-white dark:bg-black text-black dark:text-black transition-colors duration-300 shadow-md">
       {/* Top Navbar */}
@@ -46,7 +48,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex gap-15 font-large text-2xl tracking-wide">
-          {['/', '/collection', '/about', '/contact','/login'].map((path, index) => (
+          {['/', '/collection', '/about', '/contact'].map((path, index) => (
             <NavLink to={path} key={index}>
               {({ isActive }) => (
                 <div className="relative group pb-1">
@@ -63,7 +65,19 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
+
+          {/* Conditionally render login button only when NOT logged in */}
+          {!token && (
+            <NavLink to="/login">
+              <button
+                className="ml-4 px-5 py-2 rounded-lg text-white bg-black dark:bg-white dark:text-black hover:bg-white hover:text-black border border-transparent hover:border-black dark:hover:bg-gray-200 transition-all font-semibold shadow-md"
+              >
+                Login
+              </button>
+            </NavLink>
+          )}
         </ul>
+
 
 
         {/* Right Icons */}
@@ -76,21 +90,30 @@ const Navbar = () => {
           />
 
           <div className="relative" ref={dropdownRef}>
-            {
+            {token ? (
+              <div
+  onClick={handleProfileClick}
+  className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center cursor-pointer font-bold text-sm hover:scale-105 transition-transform"
+>
+  You
+</div>
+
+
+            ) : (
               <img
-              onClick={handleProfileClick}
-              src={assets.profile_icon}
-              alt="Profile"
-              className="cursor-pointer w-10 h-10"
-            />
-            }
-            
+                onClick={handleProfileClick}
+                src={assets.profile_icon}
+                alt="Profile"
+                className="cursor-pointer w-10 h-10"
+              />
+            )}
+
 
             {token && showDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-zinc-900 shadow-md rounded-md border z-20 transition-all duration-200">
-                <p onClick={() => { navigate('/profile'); setShowDropdown(false); }} className="dropdown-item">
-                  My Profile
-                </p>
+                {/* <p onClick={() => { navigate('/profile'); setShowDropdown(false); }} className="dropdown-item"> */}
+                {/* My Profile */}
+                {/* </p> */}
                 <p onClick={() => { navigate('/orders'); setShowDropdown(false); }} className="dropdown-item">
                   Orders
                 </p>
@@ -131,7 +154,16 @@ const Navbar = () => {
           <NavLink onClick={() => setVisible(false)} to='/collection'>COLLECTIONS</NavLink>
           <NavLink onClick={() => setVisible(false)} to='/about'>ABOUT</NavLink>
           <NavLink onClick={() => setVisible(false)} to='/contact'>CONTACT</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/login'>LOGIN</NavLink>
+          {!token && (
+            <NavLink
+              onClick={() => setVisible(false)}
+              to='/login'
+              className="px-5 py-2 mt-2 bg-black text-white dark:bg-white dark:text-black rounded-lg shadow-md text-center font-semibold"
+            >
+              LOGIN
+            </NavLink>
+          )}
+
         </div>
       )}
     </div>

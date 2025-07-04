@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import axios from 'axios'
 import '../Styles/Orders.css'
+import { toast } from 'react-toastify'
 
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext)
@@ -31,12 +32,16 @@ const Orders = () => {
       }
     } catch (error) {
       console.log(error)
+      toast.error(error.message)
     }
   }
 
-  useEffect(() => {
-    loadOrderData()
-  }, [])
+ useEffect(() => {
+  if (token) {
+    loadOrderData();
+  }
+}, [token]);  // <-- re-runs when token is available
+
 
   return (
     <div className="orders-container">

@@ -11,25 +11,77 @@
   transform: scale(1.01);
 }
 
-.contact-details p {
-  transition: color 0.3s ease;
+/* Contact Cards */
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+.contact-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+.card-icon {
+  font-size: 1.5rem;
+  color: #000;
+  margin-top: 4px;
+}
+.dark .card-icon {
+  color: white;
+}
+.card-text {
+  color: #555;
+}
+.dark .card-text {
+  color: #ccc;
 }
 
+/* Form Styling */
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.dark .contact-form input:focus,
+.dark .contact-form textarea:focus {
+  border-color: #fff;
+}
+
+/* Button */
 .contact-btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: linear-gradient(to right, #000, #333);
   color: #fff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease-in-out;
 }
-
 .contact-btn:hover {
   background: linear-gradient(to right, #222, #000);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
+}
+.social-icons a {
+  transition: transform 0.3s ease;
+}
+.social-icons a:hover {
+  transform: scale(1.2);
 }

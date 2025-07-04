@@ -60,4 +60,46 @@
   background-color: #1a1a1a;
 }
 
+/* Login button */
+.login-btn {
+  padding: 6px 18px;
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.login-btn:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 8px white;
+}
+
+/* Dark mode compatibility */
+.dark .login-btn {
+  border-color: white;
+  color: white;
+}
+.dark .login-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Social icon style */
+.nav-social-icon {
+  color: black;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav-social-icon:hover {
+  transform: scale(1.2);
+  color: #555;
+}
+.dark .nav-social-icon {
+  color: white;
+}
+.dark .nav-social-icon:hover {
+  color: #aaa;
+}
 

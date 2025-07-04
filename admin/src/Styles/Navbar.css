@@ -17,14 +17,23 @@
 }
 
 .navbar-logo {
-  height: 40px;
-  transition: transform 0.3s ease;
+  height: 100px;
+  width: 100px;
+  padding: 8px;
+  /* background-color: #000000; Make it feel like a logo badge */
+  border-radius: 50%; /* Circle */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 
 .navbar-logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 5px white);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  background-color: #111;
 }
+
 
 .navbar-title {
   font-size: 1.25rem;
