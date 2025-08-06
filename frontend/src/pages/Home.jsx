@@ -13,10 +13,10 @@ const Home = () => {
     <div>
       <Hero />
       <div className="homepage">
-        <New />
         <section className="home-section latest">
           <LatestCollection />
         </section>
+        <New />
         {/* <section className="home-section themes">
           <StoryThemes />
         </section> */}

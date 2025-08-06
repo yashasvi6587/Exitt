@@ -1,17 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { assets } from "../assets/assets.js";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext.jsx';
 import '../Styles/Navbar.css';
-import { useRef } from 'react';
-import { useEffect } from 'react';
 
 const Navbar = () => {
+  const location = useLocation(); // To detect current path
   const [visible, setVisible] = useState(false);
   const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
-
   const [showDropdown, setShowDropdown] = useState(false);
-
   const dropdownRef = useRef(null);
 
   const handleClickOutside = (event) => {
@@ -32,6 +29,7 @@ const Navbar = () => {
       setShowDropdown((prev) => !prev);
     }
   };
+
   const logout = () => {
     navigate('/login');
     localStorage.removeItem('token');
@@ -39,6 +37,7 @@ const Navbar = () => {
     setCartItems({});
   };
 
+  const isCollectionPage = location.pathname === '/collection';
 
   return (
     <div className="navbar-container bg-white dark:bg-black text-black dark:text-black transition-colors duration-300 shadow-md">
@@ -48,72 +47,51 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden sm:flex gap-15 font-large text-2xl tracking-wide">
-          {['/', '/collection', '/about', '/contact'].map((path, index) => (
+          {[
+            { label: 'The Ride Begins', path: '/' },
+            { label: 'Road Edition', path: '/collection' },
+            { label: 'The Code', path: '/about' },
+            { label: 'Road Stories', path: '/roadstories' },
+            { label: 'Your Garage', path: '/contact' },
+          ].map(({ label, path }, index) => (
             <NavLink to={path} key={index}>
               {({ isActive }) => (
                 <div className="relative group pb-1">
                   <p
-                    className={`transition-colors duration-300 ${isActive ? 'text-glow' : 'hover:text-gray-700 dark:hover:text-gray-300'
-                      }`}
+                    className={`transition-colors duration-300 ${isActive ? 'text-glow' : 'hover:text-gray-700 dark:hover:text-gray-300'}`}
                   >
-                    {path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+                    {label}
                   </p>
-                  <span
-                    className={`nav-underline ${isActive ? 'w-full' : ''} group-hover:w-full`}
-                  ></span>
+                  <span className={`nav-underline ${isActive ? 'w-full' : ''} group-hover:w-full`}></span>
                 </div>
               )}
             </NavLink>
           ))}
-
-          {/* Conditionally render login button only when NOT logged in */}
-          {!token && (
-            <NavLink to="/login">
-              <button
-                className="ml-4 px-5 py-2 rounded-lg text-white bg-black dark:bg-white dark:text-black hover:bg-white hover:text-black border border-transparent hover:border-black dark:hover:bg-gray-200 transition-all font-semibold shadow-md"
-              >
-                Login
-              </button>
-            </NavLink>
-          )}
         </ul>
 
-
-
         {/* Right Icons */}
-        <div className="flex items-center gap-4 ">
-          <img
-            onClick={() => setShowSearch(true)}
-            src={assets.search_icon}
-            alt="Search"
-            className="icon-hover w-10 h-10"
-          />
+        <div className="flex items-center gap-4">
+          {isCollectionPage && (
+            <img
+              onClick={() => setShowSearch(true)}
+              src={assets.search_icon}
+              alt="Search"
+              className="icon-hover w-10 h-10"
+            />
+          )}
 
           <div className="relative" ref={dropdownRef}>
-            {token ? (
-              <div
-  onClick={handleProfileClick}
-  className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center cursor-pointer font-bold text-sm hover:scale-105 transition-transform"
->
-  You
-</div>
-
-
-            ) : (
-              <img
-                onClick={handleProfileClick}
-                src={assets.profile_icon}
-                alt="Profile"
-                className="cursor-pointer w-10 h-10"
-              />
-            )}
+            <div className="saddlebag-box cursor-pointer" onClick={handleProfileClick}>
+              <span className="saddlebag-text">SaddleBag</span>
+              <Link to='/cart' className='relative cart-icon-container'>
+                <img src={assets.cart_icon} alt="Cart" className="cart-icon" />
+                <p className='cart-count-badge'>{getCartCount()}</p>
+              </Link>
+            </div>
 
 
             {token && showDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-zinc-900 shadow-md rounded-md border z-20 transition-all duration-200">
-                {/* <p onClick={() => { navigate('/profile'); setShowDropdown(false); }} className="dropdown-item"> */}
-                {/* My Profile */}
-                {/* </p> */}
                 <p onClick={() => { navigate('/orders'); setShowDropdown(false); }} className="dropdown-item">
                   Orders
                 </p>
@@ -124,13 +102,12 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to='/cart' className='relative'>
+          {/* <Link to='/cart' className='relative'>
             <img src={assets.cart_icon} alt="Cart" className="icon-hover w-10 h-10" />
-
             <p className='absolute top-[-8px] right-[-8px] bg-red-500 text-white text-xs rounded-full px-2'>
               {getCartCount()}
             </p>
-          </Link>
+          </Link> */}
 
           {!visible && (
             <img
@@ -150,20 +127,19 @@ const Navbar = () => {
             <img src={assets.dropdown_icon} className="rotate-180 w-5 h-5" alt="Back" />
             <p className="text-base font-medium">Back</p>
           </div>
-          <NavLink onClick={() => setVisible(false)} to='/'>HOME</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/collection'>COLLECTIONS</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/about'>ABOUT</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/contact'>CONTACT</NavLink>
+          <NavLink onClick={() => setVisible(false)} to='/'>The Ride Begins</NavLink>
+          <NavLink onClick={() => setVisible(false)} to='/collection'>Road Edition</NavLink>
+          <NavLink onClick={() => setVisible(false)} to='/about'>The Code</NavLink>
+          <NavLink onClick={() => setVisible(false)} to='/roadstories'>Road Stories</NavLink>
           {!token && (
             <NavLink
               onClick={() => setVisible(false)}
               to='/login'
               className="px-5 py-2 mt-2 bg-black text-white dark:bg-white dark:text-black rounded-lg shadow-md text-center font-semibold"
             >
-              LOGIN
+              Your Garage
             </NavLink>
           )}
-
         </div>
       )}
     </div>

@@ -3,6 +3,8 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import ProductItem from '../components/ProductItem';
 import '../Styles/Collection.css';
+import { useLocation } from 'react-router-dom';
+
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -11,6 +13,9 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relavent');
+  const location = useLocation();
+
+
 
   const togglecategory = (e) => {
     const value = e.target.value;
@@ -58,18 +63,33 @@ const Collection = () => {
   useEffect(() => {
     applyfilters();
   }, [category, subCategory, search, showSearch, products]);
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const categoryParam = params.get('category');
+    if (categoryParam && !category.includes(categoryParam)) {
+      setCategory([categoryParam]);
+    }
+  }, [location.search]);
+
 
   return (
     <div className="collection-wrapper bg-white dark:bg-black text-black dark:text-white py-10 px-4 md:px-10 transition-all duration-300">
       <div className="flex flex-col lg:flex-row gap-10">
-        
+
         {/* Left: Filter Sidebar */}
         <div className="lg:w-1/4 border border-gray-300 dark:border-gray-700 rounded-lg p-5 filter-box">
           <div className="mb-6">
             <p className="text-lg font-semibold mb-3">CATEGORIES</p>
-            {['DUST & FREEDOM', 'MIDNIGHT RUN', 'BROTHERHOOD / SISTERHOOD','LAP RAGE'].map((cat, index) => (
+            {['DUST & FREEDOM', 'MIDNIGHT RUN', 'BROTHERHOOD / SISTERHOOD', 'LAP RAGE'].map((cat, index) => (
               <label key={index} className="block mb-2 cursor-pointer hover:text-gray-700 dark:hover:text-gray-300">
-                <input type="checkbox" value={cat} onChange={togglecategory} className="mr-2" />
+                <input
+                  type="checkbox"
+                  value={cat}
+                  onChange={togglecategory}
+                  checked={category.includes(cat)}
+                  className="mr-2"
+                />
+
                 {cat}
               </label>
             ))}
@@ -103,13 +123,13 @@ const Collection = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
             {filterProducts.map((item, index) => (
               <div key={index} className='group rounded-xl p-2 text-white md:p-3 border border-gray-200 dark:border-zinc-800 bg-black dark:bg-white shadow-md hover:shadow-glow transform transition-all duration-300 hover:-translate-y-2'>
-              <ProductItem
-                
-                id={item._id}
-                name={item.name}
-                image={item.image}
-                price={item.price}
-              /></div>
+                <ProductItem
+
+                  id={item._id}
+                  name={item.name}
+                  image={item.image}
+                  price={item.price}
+                /></div>
             ))}
           </div>
         </div>

@@ -77,10 +77,12 @@ import hero_video from "./hero_video.mp4"
 import cod_logo from "./cod.png"
 import user_logo from "./user_logo.jpg"
 import googlelogo from "./googlelogo.png"
+import photo from "./photo.webp"
 
 
 export const assets = {
     logo,
+    photo,
     hero_img,
     cart_icon,
     dropdown_icon,
@@ -101,7 +103,11 @@ export const assets = {
     hero_video,
     cod_logo,
     user_logo,
-    googlelogo
+    googlelogo,
+    p_img1,
+    p_img2_1,
+    p_img3,
+    p_img4,
 }
 
 

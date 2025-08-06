@@ -103,3 +103,69 @@
   color: #aaa;
 }
 
+/* Box containing SaddleBag + Cart */
+.saddlebag-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border: 2px solid black;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: 'Cinzel', serif; /* You can also try 'Bebas Neue', 'Orbitron', etc. */
+}
+
+.dark .saddlebag-box {
+  border-color: white;
+  background: black;
+}
+
+.saddlebag-box:hover {
+  background: black;
+  border-color: white;
+}
+
+.saddlebag-box:hover .saddlebag-text,
+.saddlebag-box:hover .cart-icon {
+  color: white;
+  filter: brightness(0) invert(1);
+}
+
+/* Stylish and unique font for SaddleBag text */
+.saddlebag-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.dark .saddlebag-text {
+  color: white;
+}
+
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 9999px;
+  padding: 0 6px;
+}
+
+

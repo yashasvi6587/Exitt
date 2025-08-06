@@ -12,7 +12,6 @@ const Add = ({ token }) => {
   const [image4, setImage4] = useState(false)
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
-  const [content, setContent] = useState("")
   const [price, setPrice] = useState("")
   const [category, setCatgeory] = useState("DUST & FREEDOM")
   const [subCategory, setSubCategory] = useState("TopWear")
@@ -89,10 +88,6 @@ const Add = ({ token }) => {
       <div className="text-input">
         <p>Product Description</p>
         <textarea value={description} onChange={(e) => setDescription(e.target.value)} required placeholder='Type Here' />
-      </div>
-      <div className="text-input">
-        <p>Content</p>
-        <input value={content} onChange={(e) => setContent(e.target.value)} type="text" required placeholder='Type Here' />
       </div>
       <div className="selectors">
         <div>

@@ -1,187 +1,251 @@
-.hero-section {
+.collection-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 60px;
   background-color: white;
-  padding: 4rem 2rem;
-  color: black;
+  gap: 40px;
 }
 
-.hero-content {
+.container {
+  display: flex;
+  padding: 60px;
+  background-color: white;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: stretch; /* Changed from center to stretch for equal height */
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 40%;
+  background-color: black;
+  padding: 80px;
+  color: white;
+  height: 600px; /* ✅ Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-right {
+  flex: 1;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px; /* ✅ Same height as hero-left */
+  overflow: hidden;
+}
+
+.carousel-controls {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product-box {
+  display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  margin-top: 3rem;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 50px;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
-.hero-text {
-  flex: 1 1 400px;
-  max-width: 600px;
+.product-image {
+  flex: 1;
+  width: 100%;
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.tagline {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 1rem;
+
+.hero-tag {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #b0b0b0;
+  margin-bottom: 20px;
 }
 
-.hero-heading {
-  font-size: 2.5rem;
+.hero-title {
+  font-size: 48px;
   font-weight: bold;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin: 20px 0;
+  line-height: 1.3;
 }
 
 .hero-subtext {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  font-size: 18px;
+  color: #c5c5c5;
+  margin-bottom: 30px;
 }
 
-.hero-cta {
-  padding: 0.8rem 2rem;
-  background: black;
-  color: white;
+.hero-button {
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 18px;
   border: none;
-  font-size: 1rem;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
-.hero-cta:hover {
-  background: #222;
-  transform: scale(1.05);
+
+
+.carousel-arrow {
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
 }
 
-/* Carousel Section */
-.hero-carousel {
-  flex: 1 1 400px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
 
-.carousel-box {
-  background-color: black;
-  padding: 2rem;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-}
 
-.carousel-card {
-  text-align: center;
+.product-details {
   flex: 1;
+  text-align: left;
 }
 
-.carousel-img {
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+
+
+.breadcrumb {
+  font-size: 16px;
+  color: black;
+  margin-bottom: 10px;
 }
 
-.carousel-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: white;
-}
-
-.carousel-desc {
-  font-size: 0.95rem;
-  color: white;
-  margin-bottom: 0.8rem;
-}
-
-.carousel-price {
-  font-size: 1.1rem;
-  color: white;
+.product-price {
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 10px 0;
+  color: black;
 }
 
-.add-to-cart-btn {
-  padding: 0.6rem 1.5rem;
-  background-color: #e50914;
+.product-name {
+  font-size: 32px;
+  margin: 15px 0 10px;
+  color: black;
+}
+
+.product-desc {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.quantity-add {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: black;
+}
+
+.quantity-input {
+  width: 80px;
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+  color: black;
+}
+
+.add-cart-button {
+  background-color: black;
   color: white;
+  padding: 14px 28px;
+  font-size: 18px;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  border-radius: 5px;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #c40812;
-  transform: scale(1.05);
-}
+/* 📱 Make Collection Section Responsive */
 
-.carousel-nav {
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
+/* Base styles stay as-is */
 
-.carousel-nav:hover {
-  color: #ccc;
-}
-
-/* Responsive */
 @media (max-width: 1024px) {
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    text-align: center;
+  .collection-wrapper {
+    padding: 30px 40px;
+    gap: 30px;
   }
 
-  .hero-text {
-    max-width: 90%;
+  .container {
+    flex-direction: column;
+    padding: 40px;
+    gap: 40px;
   }
 
-  .carousel-box {
+  .hero-left,
+  .hero-right {
+    max-width: 100%;
+    height: auto;
+    padding: 40px;
+  }
+
+  .product-box {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .product-image {
     width: 100%;
-    padding: 1.5rem;
-  }
-
-  .carousel-img {
+    max-width: 100%;
     height: auto;
   }
 
-  .carousel-nav {
-    display: none;
+  .carousel-controls {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtext,
+  .product-desc,
+  .breadcrumb,
+  .product-price,
+  .product-name {
+    font-size: 16px;
+  }
+
+  .hero-button,
+  .add-cart-button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .hero-left,
+  .hero-right {
+    padding: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-heading {
-    font-size: 1.8rem;
+  .hero-title {
+    font-size: 28px;
   }
 
-  .hero-subtext {
-    font-size: 0.95rem;
+  .hero-button,
+  .add-cart-button {
+    width: 100%;
+    padding: 12px;
   }
 
-  .carousel-name {
-    font-size: 1.1rem;
-  }
-
-  .carousel-price {
-    font-size: 1rem;
+  .carousel-arrow {
+    font-size: 28px;
   }
 }

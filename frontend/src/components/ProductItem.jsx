@@ -10,7 +10,7 @@ const ProductItem = ({ id, image, name, price }) => {
       className="block p-4 border rounded-lg hover:shadow-lg transition-all"
     >
       <div>
-        <img src={image[0]} alt={name} className="w-full h-auto object-cover" />
+        <img src={image[0]} alt={name} className="w-full h-50 object-cover" />
       </div>
       <p className="font-semibold">{name}</p>
       <p className="text-sm text-white">{currency} {price}/-</p>

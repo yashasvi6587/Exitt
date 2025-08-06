@@ -1,20 +1,35 @@
 .hero-container {
-  background-image: url('/your/hero-bg.jpg'); /* You can use a bike lifestyle image */
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
   position: relative;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
+/* Add the overlay */
+.hero-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('C:/Users/MK/Projects/Exitt App/frontend/src/assets/display.jpg'); /* Correct pathing for dev environment */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2; /* ✅ Controls the darkness */
+  z-index: 1;
+}
+
+/* Keep content above overlay */
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.65);
+  position: relative;
+  z-index: 2;
+  background: black;
   padding: 3rem;
   text-align: center;
   border-radius: 10px;
+  color: white;
 }
+
 
 .hero-overlay h1 {
   font-size: 3.2rem;

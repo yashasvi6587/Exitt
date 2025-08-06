@@ -16,7 +16,7 @@
 
 .title-container p:first-child:hover {
   color: #111;
-  text-shadow: 0 0 5px #aaa, 0 0 10px #000;
+  /* text-shadow: 0 0 5px #aaa, 0 0 10px #000; */
 }
 
 .title-container span {

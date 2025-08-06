@@ -86,7 +86,7 @@ const PlaceOrder = () => {
             setCartItems({})
             navigate('/orders')
           } else {
-            toast.error(response.data.message)
+            navigate('/login')
           }
           break
         case 'stripe':
@@ -95,7 +95,7 @@ const PlaceOrder = () => {
             const { session_url } = responseStripe.data
             window.location.replace(session_url)
           } else {
-            toast.error(responseStripe.data.message)
+            navigate('/login')
           }
           break
         case 'razorpay':
@@ -105,8 +105,8 @@ const PlaceOrder = () => {
             
           //   const { session_url } = responseStripe.data
           //   window.location.replace(session_url)
-          // } else {
-          //   toast.error(responseStripe.data.message)
+          } else {
+            navigate("/login")
           }
           break
         default:

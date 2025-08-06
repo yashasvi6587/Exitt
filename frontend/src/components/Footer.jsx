@@ -19,10 +19,10 @@ const Footer = () => {
         <div className="footer-links">
           <p className="footer-heading">COMPANY</p>
           <ul className="space-y-2 mt-4">
-            <Link to={'/'}><li onClick={()=>window.scrollTo(0,0)}>Home</li></Link>
-            <Link to={'/collection'}><li onClick={()=>window.scrollTo(0,0)}>Collections</li></Link>
-            <Link to={'/about'}><li onClick={()=>window.scrollTo(0,0)}>About Us</li></Link>
-            <Link to={'/contact'}><li onClick={()=>window.scrollTo(0,0)}>Contact Us</li></Link>
+            <Link to={'/'}><li onClick={()=>window.scrollTo(0,0)}>The Ride Begins</li></Link>
+            <Link to={'/collection'}><li onClick={()=>window.scrollTo(0,0)}>Road Edition</li></Link>
+            <Link to={'/about'}><li onClick={()=>window.scrollTo(0,0)}>The Code</li></Link>
+            <Link to={'/contact'}><li onClick={()=>window.scrollTo(0,0)}>Road Stories</li></Link>
             
           </ul>
         </div>
