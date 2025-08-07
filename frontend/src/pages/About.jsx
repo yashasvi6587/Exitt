@@ -1,5 +1,4 @@
 import React from 'react';
-import NewsLetterBox from '../components/NewsLetterBox';
 
 const About = () => {
   return (
@@ -76,8 +75,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Newsletter */}
-      <NewsLetterBox />
     </div>
   );
 };

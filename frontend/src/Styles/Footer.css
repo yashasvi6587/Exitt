@@ -1,18 +1,19 @@
 .footer-heading {
-  font-weight: bold;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: 1.5px;
   position: relative;
   display: inline-block;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .footer-heading::after {
   content: '';
   position: absolute;
-  width: 50%;
+  width: 70%;
   height: 2px;
-  bottom: -5px;
+  bottom: -8px;
   left: 0;
   background-color: black;
   transition: width 0.3s ease;
@@ -23,19 +24,50 @@
 }
 
 .footer-link-item {
+  font-size: 1.125rem;
+  font-weight: 500;
   cursor: pointer;
   color: inherit;
   position: relative;
   transition: all 0.3s ease;
-  padding-left: 2px;
+  padding-left: 4px;
 }
 
 .footer-link-item:hover {
   color: #000;
-  transform: translateX(5px);
-  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+  transform: translateX(8px);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
 
 .dark .footer-link-item:hover {
   color: white;
+}
+
+.social-icons a {
+  transition: transform 0.3s ease;
+  font-size: 1.75rem;
+}
+
+.social-icons a:hover {
+  transform: translateY(-4px);
+}
+
+.footer-logo-section p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.footer-links ul li {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.footer-container {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.footer-content > div {
+  gap: 2rem;
 }

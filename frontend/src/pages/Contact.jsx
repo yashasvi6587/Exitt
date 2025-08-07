@@ -16,11 +16,6 @@ const Contact = () => {
 
       {/* Content Area */}
       <div className="flex flex-col lg:flex-row items-center gap-10 mb-20">
-        <img
-          src={assets.contact_img}
-          alt="Contact"
-          className="rounded-xl w-full lg:w-1/2 shadow-glow"
-        />
 
         <div className="contact-details space-y-6 lg:w-1/2">
           <div className="contact-card">

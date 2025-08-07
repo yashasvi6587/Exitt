@@ -10,7 +10,7 @@ const productData = [
     name: "DUST & FREEDOM",
     price: "2999",
     content: "Sun-scorched, grit-covered, desert-born",
-    image: assets.photo,
+    image: assets.freedom,
     button: "Ride This Way"
   },
   {
@@ -18,7 +18,7 @@ const productData = [
     name: "MIDNIGHT RUN",
     price: "4999",
     content: "Rides that start after 12. Born of silence and steel",
-    image: assets.p_img2_1,
+    image: assets.midnightrun,
     button: "Run The Night"
   },
   {
@@ -26,7 +26,7 @@ const productData = [
     name: "BROTHERHOOD / SISTERHOOD",
     price: "1999",
     content: "One tribe. One Throttle. Marked Together",
-    image: assets.p_img3,
+    image: assets.brotherhood,
     button: "Meet The Tribe"
   },
   {
@@ -34,7 +34,7 @@ const productData = [
     name: "LAP RAGE",
     price: "1499",
     content: "Speed. Steel. Precision. Nothing in the rear-view",
-    image: assets.p_img4,
+    image: assets.laprage,
     button: "Feel The Burn"
   }
 ];
@@ -50,13 +50,14 @@ const LatestCollection = () => {
       <div className="straight-grid">
         {productData.map((product) => (
           <div key={product.id} className="product-card">
-            <h2 className="product-name-heading">{product.name}</h2>
+            <Link to={`/collection?category=${encodeURIComponent(product.name)}`}>
             <div className="image-container">
               <img src={product.image} alt={product.name} className="product-card-image" />
               <div className="hover-overlay">
                 <p className="product-hover-text">{product.content}</p>
               </div>
             </div>
+            </Link>
             <Link to={`/collection?category=${encodeURIComponent(product.name)}`}>
             <button onClick={topper} className="product-card-button">
               {product.button} <span className="arrow-icon">→</span>

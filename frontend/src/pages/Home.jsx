@@ -3,8 +3,6 @@ import Hero from '../components/Hero'
 import LatestCollection from '../components/LatestCollection'
 import BestSeler from '../components/BestSeler'
 import OurPolicy from '../components/OurPolicy'
-import NewsLetterBox from '../components/NewsLetterBox'
-import StoryThemes from '../components/StoryThemes'
 import New from '../components/New'
 import "../Styles/Home.css"
 
@@ -20,7 +18,6 @@ const Home = () => {
       </div>
       <BestSeler />
       <OurPolicy />
-      <NewsLetterBox />
     </div>
   )
 }

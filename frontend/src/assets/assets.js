@@ -78,6 +78,10 @@ import cod_logo from "./cod.png"
 import user_logo from "./user_logo.jpg"
 import googlelogo from "./googlelogo.png"
 import photo from "./photo.webp"
+import midnightrun from "./midnightrun.jpg"
+import freedom from "./freedom.jpg"
+import brotherhood from "./brotherhood.jpg"
+import laprage from "./laprage.jpg"
 
 
 export const assets = {
@@ -108,6 +112,10 @@ export const assets = {
     p_img2_1,
     p_img3,
     p_img4,
+    midnightrun,
+    laprage,
+    freedom,
+    brotherhood
 }
 
 

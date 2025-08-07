@@ -53,7 +53,7 @@ const Navbar = () => {
             { label: 'The Code', path: '/about' },
             { label: 'Road Stories', path: '/roadstories' },
             { label: 'Your Garage', path: '/orders' },
-            { label: 'Contact Us', path: '/contact' },
+            // { label: 'Contact Us', path: '/contact' },
           ].map(({ label, path }, index) => (
             <NavLink to={path} key={index}>
               {({ isActive }) => (
