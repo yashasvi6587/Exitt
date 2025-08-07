@@ -1,7 +1,5 @@
 import React from 'react';
 import '../Styles/StoryThemes.css';
-import dustandfredom from '../assets/dustandfredom.jpg';
-import midnightrun from '../assets/midnightrun.jpg';
 
 const themes = [
   {
@@ -14,7 +12,6 @@ const themes = [
       'Freedom that waits — not screams.',
       'For those who’ve ever wanted out.',
     ],
-    bg: dustandfredom,
   },
   {
     title: 'MIDNIGHT RUN',
@@ -26,7 +23,6 @@ const themes = [
       'Not about being seen — about feeling real.',
       'Vanishing with purpose and pulse.',
     ],
-    bg: midnightrun,
   },
   {
     title: 'BROTHERHOOD / SISTERHOOD',
@@ -38,7 +34,6 @@ const themes = [
       'No initiation — only invitation.',
       'For the ones who keep their promises.',
     ],
-    bg: dustandfredom,
   },
   {
     title: 'LAP RAGE',
@@ -50,7 +45,6 @@ const themes = [
       'Balance at the edge of break.',
       'You move, and the world disappears.',
     ],
-    bg: midnightrun,
   },
 ];
 
@@ -62,7 +56,6 @@ const StoryThemes = () => {
           className={`theme-block ${index % 2 === 0 ? 'left' : 'right'}`}
           key={index}
         >
-          <div className="theme-bg" style={{ backgroundImage: `url(${theme.bg})` }} />
           <div className="theme-box">
             <h2>{theme.title}</h2>
             <ul>

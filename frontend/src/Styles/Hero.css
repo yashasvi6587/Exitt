@@ -1,45 +1,6 @@
-/* Glowing Button Background */
-.glow-button {
-  position: relative;
-  z-index: 1;
-  color: inherit;
-  background: transparent;
-  transition: color 0.3s ease-in-out;
-}
-
-.glow-button .glow-bg {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #000 0%, #fff 100%);
-  z-index: 0;
-  border-radius: 999px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-in-out;
-}
-
-.glow-button:hover .glow-bg {
-  transform: scaleX(1);
-}
-
-.glow-button:hover span {
-  color: white;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
+.hero-section {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/display.jpg");
 }

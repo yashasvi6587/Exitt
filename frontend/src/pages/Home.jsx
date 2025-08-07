@@ -4,7 +4,7 @@ import LatestCollection from '../components/LatestCollection'
 import BestSeler from '../components/BestSeler'
 import OurPolicy from '../components/OurPolicy'
 import NewsLetterBox from '../components/NewsLetterBox'
-// import StoryThemes from '../components/StoryThemes'
+import StoryThemes from '../components/StoryThemes'
 import New from '../components/New'
 import "../Styles/Home.css"
 
@@ -17,9 +17,6 @@ const Home = () => {
           <LatestCollection />
         </section>
         <New />
-        {/* <section className="home-section themes">
-          <StoryThemes />
-        </section> */}
       </div>
       <BestSeler />
       <OurPolicy />

@@ -29,7 +29,7 @@ const loginUser=async(req,res)=>{
 // Route for user reigster
 const registerUser = async (req, res) => {
     try {
-        const { name, email, password, phone, gender, dob, bikeType } = req.body;
+        const { name, email, password, phone,state , tribe } = req.body;
 
         const exists = await userModel.findOne({ email });
         if (exists) {
@@ -52,9 +52,9 @@ const registerUser = async (req, res) => {
             email,
             password: hashedPassword,
             phone,
-            gender,
-            dob,
-            bikeType,
+            state,
+            tribe,
+            date:Date.now()
         });
 
         const user = await newUser.save();
@@ -65,6 +65,23 @@ const registerUser = async (req, res) => {
         console.log(error);
         res.json({ success: false, message: error.message });
     }
+};
+
+const getUserDetails = async (req, res) => {
+  try {
+    const token = req.headers.token;
+    if (!token) return res.json({ success: false, msg: "No token provided" });
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await userModel.findById(decoded.id).select("-password -cartData");
+
+    if (!user) return res.json({ success: false, msg: "User not found" });
+
+    res.json({ success: true, data: user });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, msg: error.message });
+  }
 };
 
 
@@ -86,4 +103,4 @@ const adminLogin=async(req,res)=>{
 }
 
 
-export {loginUser,registerUser,adminLogin}
+export {loginUser,registerUser,adminLogin,getUserDetails}

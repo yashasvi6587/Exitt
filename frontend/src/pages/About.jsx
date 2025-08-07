@@ -69,7 +69,7 @@ const About = () => {
           </h2>
           <a
             href="/collection"
-            className="inline-block bg-white text-black px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-md hover:bg-gray-300 transition"
+            className="inline-block bg-white text-black px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-md hover:bg-gray-300 transition mb-10"
           >
             Explore Road Editions →
           </a>

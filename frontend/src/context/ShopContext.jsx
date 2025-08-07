@@ -45,10 +45,7 @@ const ShopContextProvider = (props) => {
             }
         }
     }
-    // useEffect(() => {
-    //     console.log(cartItems);
 
-    // }, [cartItems])
     const getCartCount = () => {
         let totalCount = 0
         for (const items in cartItems) {
@@ -64,19 +61,14 @@ const ShopContextProvider = (props) => {
         }
         return totalCount
     }
-    // const updateQuantity =async(itemId,size,quantity)=>{
-    //     let cartData=structuredClone(cartItems)
-    //     cartData[itemId][size]=quantity
-    //     setCartItems[cartData]
-    // }
+    
     const updateQuantity = async (itemId, size, quantity) => {
         let cartData = structuredClone(cartItems)
 
         if (quantity <= 0) {
-            // Delete that size
+   
             delete cartData[itemId][size]
 
-            // If no sizes left for the item, delete the whole item
             if (Object.keys(cartData[itemId]).length === 0) {
                 delete cartData[itemId]
             }
@@ -132,9 +124,7 @@ const ShopContextProvider = (props) => {
             if (response.data.success) {
                 setCartItems(response.data.cartData)
             }
-            // else{
-            //     toast.error(response.data.message)
-            // }
+        
         } catch (error) {
             console.log(error);
             toast.error(error.message)
@@ -158,7 +148,7 @@ const ShopContextProvider = (props) => {
         getCartCount, updateQuantity,
         getCartAmount, navigate,
         backendUrl,
-        setToken, token,
+        setToken, token,getUserCart
     }
     return (
         <ShopContext.Provider value={value}>

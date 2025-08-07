@@ -36,11 +36,15 @@ const Cart = () => {
       <div>
         {
           cartData.map((item, index) => {
-            const productsData = products.find((product) => product._id === item._id)
+            const productsData = products.find((product) => product._id === item._id);
+
+            // Skip if product not found (prevent crash)
+            if (!productsData) return null;
+
             return (
               <div className="cart-item" key={index}>
                 <div className="cart-product">
-                  <img src={productsData.image[0]} alt="" />
+                  <img src={productsData.image?.[0]} alt="" />
                   <div className="cart-details">
                     <p className="font-semibold">{productsData.name}</p>
                     <p>{currency}{productsData.price}</p>
@@ -68,6 +72,7 @@ const Cart = () => {
             )
           })
         }
+
       </div>
 
       <div className="checkout-section">

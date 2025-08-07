@@ -2,29 +2,134 @@
   padding: 2rem 1rem;
   max-width: 1200px;
   margin: auto;
+  font-family: 'Poppins', sans-serif;
+  color: #111;
 }
 
+.user-profile-box {
+  background: linear-gradient(135deg, #111, #1c1c1c);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-profile-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: shimmer 5s linear infinite;
+  z-index: 0;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.user-profile-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.1);
+}
+
+.user-profile-box h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  position: relative;
+  color: #fff;
+}
+
+.user-profile-box p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #ccc;
+  z-index: 1;
+  position: relative;
+}
+.user-info-line {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  color: #fff;
+  position: relative;
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.08);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.info-title {
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.4rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #aaa;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+
+
+/* ORDER CARD */
 .order-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1.5px solid #222;
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
-  background-color: #fff;
 }
 
 .order-card:hover {
-  box-shadow: 0 0 12px #111;
-  transform: translateY(-2px);
+  transform: scale(1.015);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .order-left {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: flex-start;
   flex: 1;
 }
@@ -32,23 +137,24 @@
 .order-left img {
   width: 120px;
   height: auto;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  border-radius: 16px;
+  border: 1px solid #ddd;
 }
 
 .order-info {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.4rem;
 }
 
 .order-info p {
   margin: 0;
-  color: #222;
+  font-size: 0.95rem;
+  color: #111;
 }
 
 .order-info span {
-  font-weight: 500;
+  font-weight: 600;
   color: #000;
 }
 
@@ -65,38 +171,39 @@
   align-items: center;
   gap: 0.6rem;
   font-weight: 600;
-  color: green;
+  color: #29a329;
 }
 
 .order-status-dot {
   width: 12px;
   height: 12px;
-  background-color: green;
+  background-color: #29a329;
   border-radius: 50%;
 }
 
 .track-btn {
   background: #000;
   color: #fff;
-  padding: 0.5rem 1.1rem;
-  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
   border: none;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .track-btn:hover {
-  box-shadow: 0 0 10px #000;
-  transform: scale(1.03);
+  background: #111;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
   .order-card {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.2rem;
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   .order-left {
@@ -120,28 +227,28 @@
     align-items: center;
     gap: 1rem;
   }
-
-  .order-status {
-    font-size: 0.9rem;
-  }
-
-  .track-btn {
-    padding: 0.4rem 0.9rem;
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 480px) {
   .order-info p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .track-btn {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
   }
 
   .order-left img {
     width: 80px;
+  }
+
+  .user-profile-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .user-info-line {
+    font-size: 0.9rem;
+    gap: 1rem;
   }
 }

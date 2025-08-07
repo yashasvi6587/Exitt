@@ -7,39 +7,53 @@
   overflow: hidden;
 }
 
-/* Add the overlay */
-.hero-container::before {
-  content: '';
+/* Background slideshow */
+.background-slideshow {
   position: absolute;
   inset: 0;
-  background-image: url('C:/Users/MK/Projects/Exitt App/frontend/src/assets/display.jpg'); /* Correct pathing for dev environment */
   background-size: cover;
   background-position: center;
-  opacity: 0.2; /* ✅ Controls the darkness */
+  transition: background-image 1s ease-in-out;
+  z-index: 0;
+}
+
+/* Dark overlay on top of background */
+.dark-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
-/* Keep content above overlay */
+/* Overlay content */
 .hero-overlay {
   position: relative;
   z-index: 2;
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
   padding: 3rem;
   text-align: center;
   border-radius: 10px;
   color: white;
+  width: 600px;
+  height: 600px;
 }
-
 
 .hero-overlay h1 {
   font-size: 3.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.hero-overlay p {
-  font-size: 1.25rem;
+.hero-overlay ul {
+  list-style: none;
+  padding-left: 0;
   margin-bottom: 2rem;
+}
+
+.hero-overlay ul li {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
   color: #ccc;
 }
 
@@ -49,9 +63,10 @@
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration: none;
+  border: none;
   border-radius: 5px;
   transition: background 0.3s ease;
+  cursor: pointer;
 }
 
 .hero-btn:hover {

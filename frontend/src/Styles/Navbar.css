@@ -4,10 +4,24 @@
   text-shadow: 0 0 5px white, 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
+.active-nav {
+  color: white;
+  background-color: black;
+  /* border-radius: 6px; */
+  font-weight: bold;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); */
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.dark .active-nav {
+  color: black;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
 /* Underline animation */
 .nav-underline {
-  content: '';
-  position: absolute;
   height: 2px;
   bottom: 0;
   left: 0;
@@ -16,7 +30,13 @@
   transition: width 0.3s ease;
 }
 
-.dark .nav-underline {
+.text-glow + .nav-underline {
+  width: 100%;
+  background: black;
+  height: 3px;
+}
+
+.dark .text-glow + .nav-underline {
   background: white;
 }
 

@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext)
   const [orderData, setOrderData] = useState([])
+  const [userDetails, setUserDetails] = useState(null)
 
   const loadOrderData = async () => {
     try {
@@ -36,16 +37,58 @@ const Orders = () => {
     }
   }
 
- useEffect(() => {
-  if (token) {
-    loadOrderData();
+  const loadUserDetails = async () => {
+    try {
+      const response = await axios.get(backendUrl + '/api/user/profile', {
+        headers: { token }
+      })
+      if (response.data.success) {
+        setUserDetails(response.data.data)
+      }
+      console.log(response);
+
+    } catch (error) {
+      console.log(error)
+    }
   }
-}, [token]);  // <-- re-runs when token is available
+
+  useEffect(() => {
+    if (token) {
+      loadOrderData()
+      loadUserDetails()
+    }
+  }, [token])
 
 
   return (
     <div className="orders-container">
-      <Title text1="MY" text2="ORDERS" />
+      {userDetails && (
+        <div className="user-profile-box">
+          <h3>Welcome back, {userDetails.name}</h3>
+
+          <p>This is where your story lives.</p>
+          <div className="user-info-line">
+            <p className="info-title">Your Mark</p>
+
+            <div className="info-item">
+              <span className="info-label">Tribe</span>
+              <span className="info-value">{userDetails.tribe}</span>
+            </div>
+
+            <div className="info-item">
+              <span className="info-label">Location</span>
+              <span className="info-value">{userDetails.state}, IN</span>
+            </div>
+
+            <div className="info-item">
+              <span className="info-label">Member Since</span>
+              <span className="info-value">{new Date(userDetails.date).toDateString()}</span>
+            </div>
+          </div>
+
+        </div>
+      )}
+      <Title text1="YOUR" text2="GEARS" />
       <div>
         {
           orderData.map((item, index) => (

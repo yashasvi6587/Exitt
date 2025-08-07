@@ -22,7 +22,9 @@ const Footer = () => {
             <Link to={'/'}><li onClick={()=>window.scrollTo(0,0)}>The Ride Begins</li></Link>
             <Link to={'/collection'}><li onClick={()=>window.scrollTo(0,0)}>Road Edition</li></Link>
             <Link to={'/about'}><li onClick={()=>window.scrollTo(0,0)}>The Code</li></Link>
-            <Link to={'/contact'}><li onClick={()=>window.scrollTo(0,0)}>Road Stories</li></Link>
+            <Link to={'/roadstories'}><li onClick={()=>window.scrollTo(0,0)}>Road Stories</li></Link>
+            <Link to={'/orders'}><li onClick={()=>window.scrollTo(0,0)}>Your Garage</li></Link>
+            <Link to={'/contact'}><li onClick={()=>window.scrollTo(0,0)}>Contact Us</li></Link>
             
           </ul>
         </div>

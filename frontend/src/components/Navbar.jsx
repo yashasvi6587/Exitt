@@ -46,22 +46,25 @@ const Navbar = () => {
         <Link to='/'><img src={assets.logo} alt="Logo" className="w-24 hover:scale-105 transition-transform duration-300 h-24" /></Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden sm:flex gap-15 font-large text-2xl tracking-wide">
+        <ul className="hidden sm:flex gap-10 font-large text-xl tracking-wide">
           {[
             { label: 'The Ride Begins', path: '/' },
             { label: 'Road Edition', path: '/collection' },
             { label: 'The Code', path: '/about' },
             { label: 'Road Stories', path: '/roadstories' },
-            { label: 'Your Garage', path: '/contact' },
+            { label: 'Your Garage', path: '/orders' },
+            { label: 'Contact Us', path: '/contact' },
           ].map(({ label, path }, index) => (
             <NavLink to={path} key={index}>
               {({ isActive }) => (
                 <div className="relative group pb-1">
                   <p
-                    className={`transition-colors duration-300 ${isActive ? 'text-glow' : 'hover:text-gray-700 dark:hover:text-gray-300'}`}
+                    className={`transition-all duration-300 px-2 py-1 
+    ${isActive ? 'active-nav' : 'hover:text-gray-700 dark:hover:text-gray-300'}`}
                   >
                     {label}
                   </p>
+
                   <span className={`nav-underline ${isActive ? 'w-full' : ''} group-hover:w-full`}></span>
                 </div>
               )}
@@ -81,20 +84,26 @@ const Navbar = () => {
           )}
 
           <div className="relative" ref={dropdownRef}>
-            <div className="saddlebag-box cursor-pointer" onClick={handleProfileClick}>
-              <span className="saddlebag-text">SaddleBag</span>
+            <div className="relative flex items-center gap-5" ref={dropdownRef}>
+              {/* SaddleBag Box */}
+              <div className="saddlebag-box cursor-pointer" onClick={handleProfileClick}>
+                <span className="saddlebag-text">SaddleBag</span>
+              </div>
+
+              {/* Cart Icon (outside box) */}
               <Link to='/cart' className='relative cart-icon-container'>
-                <img src={assets.cart_icon} alt="Cart" className="cart-icon" />
+                <img src={assets.cart_icon} alt="Cart" className="cart-icon icon-hover" />
                 <p className='cart-count-badge'>{getCartCount()}</p>
               </Link>
             </div>
 
 
+
             {token && showDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-zinc-900 shadow-md rounded-md border z-20 transition-all duration-200">
-                <p onClick={() => { navigate('/orders'); setShowDropdown(false); }} className="dropdown-item">
+                {/* <p onClick={() => { navigate('/orders'); setShowDropdown(false); }} className="dropdown-item">
                   Orders
-                </p>
+                </p> */}
                 <p onClick={() => { logout(); setShowDropdown(false); }} className="dropdown-item">
                   Logout
                 </p>
@@ -131,7 +140,7 @@ const Navbar = () => {
           <NavLink onClick={() => setVisible(false)} to='/collection'>Road Edition</NavLink>
           <NavLink onClick={() => setVisible(false)} to='/about'>The Code</NavLink>
           <NavLink onClick={() => setVisible(false)} to='/roadstories'>Road Stories</NavLink>
-          {!token && (
+          {!token ? (
             <NavLink
               onClick={() => setVisible(false)}
               to='/login'
@@ -139,7 +148,13 @@ const Navbar = () => {
             >
               Your Garage
             </NavLink>
+          ) : (
+            <>
+              <NavLink onClick={() => setVisible(false)} to='/orders'>Orders</NavLink>
+              <p onClick={() => { logout(); setVisible(false); }} className="cursor-pointer">Logout</p>
+            </>
           )}
+
         </div>
       )}
     </div>
